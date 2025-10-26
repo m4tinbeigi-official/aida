@@ -5,7 +5,7 @@
  * Description: Aida Chatbox Integration for WordPress. Easily add the Aida chatbot to your site with a simple admin panel.
  * Version: 1.0.3
  * Author: Rick Sanchez
- * Author URI: https://ricksanchez.ir/
+ * Author URI: https://ricksanchez.ir
  * License: GPL v2 or later
  * Text Domain: aida-chatbox
  * Domain Path: /languages

@@ -27,6 +27,9 @@ Get your free Aida API key from [Aida Dashboard](https://app.aidasales.ir/dashbo
 
 For more details, visit the [Aida Website](https://aidasales.ir) or check the [Documentation](https://app.aidasales.ir/chatbox).
 
+=== Aida Chatbox ===
+Contributors: m4tinbeigi-official
+
 == Installation ==
 
 1. Download the plugin ZIP file from the WordPress repository.
@@ -54,6 +57,7 @@ Basic positioning and state are customizable via the plugin settings. For advanc
 = What if the chatbox doesn't appear? =
 
 Ensure your API key is valid and saved. Check browser console for errors. If issues persist, contact support via [Aida Website](https://aidasales.ir).
+
 
 == Screenshots ==
 
