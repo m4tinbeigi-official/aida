@@ -4,7 +4,7 @@ Donate link: https://ricksanchez.ir/
 Tags: chatbox, chatbot, customer support, live chat, integration
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -64,6 +64,13 @@ Ensure your API key is valid and saved. Check browser console for errors. If iss
 (اگر اسکرین‌شات داری، فایل‌های PNG/JPG رو در فولدر `assets/screenshots/` بذار و لینک‌هاشون رو اینجا اضافه کن، مثل: 1. assets/screenshots/1-settings.png)
 
 == Changelog ==
+
+= 1.0.4 - October 26, 2025 =
+* Removed deprecated load_plugin_textdomain() function for WordPress.org compatibility.
+* Added proper output escaping (esc_html_e, esc_attr, etc.) for enhanced security.
+* Included translators comments for internationalization placeholders.
+* Used numbered placeholders (%1$s, %2$s) in translatable strings for better order.
+* Enqueued chatbox script using wp_enqueue_script() and added data attributes via script_loader_tag filter.
 
 = 1.0.3 - October 26, 2025 =
 * Fixed plugin name length issue for WordPress.org compatibility.
