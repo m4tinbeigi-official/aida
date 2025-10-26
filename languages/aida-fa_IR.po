@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aida\n"
 "POT-Creation-Date: 2025-10-26 15:28+0330\n"
-"PO-Revision-Date: 2025-10-26 15:30+0330\n"
+"PO-Revision-Date: 2025-10-26 15:35+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -60,6 +60,8 @@ msgid ""
 "Enter your Aida Chatbox API Key from your Aida dashboard (%sChannels > "
 "Website%s)."
 msgstr ""
+"کلید API ربات چت آیدا خود را از داشبورد آیدا (%sکانال‌ها > وب‌سایت%s) وارد "
+"کنید."
 
 #: aida.php:102
 msgid "Chatbox Position"
@@ -78,10 +80,12 @@ msgstr "راست"
 msgid ""
 "Position of the chatbox (default: right). See %sdocs%s for more options."
 msgstr ""
+"موقعیت کادر گفتگو (پیش‌فرض: راست). برای گزینه‌های بیشتر به %sdocs%s مراجعه "
+"کنید."
 
 #: aida.php:112
 msgid "Initial State"
-msgstr ""
+msgstr "حالت اولیه"
 
 #: aida.php:115
 msgid "Open"
@@ -97,12 +101,16 @@ msgid ""
 "Initial state of the chatbox (default: closed). See %sdocs%s for more "
 "options."
 msgstr ""
+"وضعیت اولیه‌ی چت‌باکس (پیش‌فرض: بسته). برای گزینه‌های بیشتر به %sdocs%s مراجعه "
+"کنید."
 
 #: aida.php:127
 msgid ""
 "Warning: Aida API Key is not set. The chatbox will not appear on your site. "
 "Please enter your API key above and save changes."
 msgstr ""
+"هشدار: کلید API آیدا تنظیم نشده است. کادر گفتگو در سایت شما نمایش داده "
+"نمی‌شود. لطفاً کلید API خود را در بالا وارد کرده و تغییرات را ذخیره کنید."
 
 #. Plugin URI of the plugin/theme
 msgid "https://aidasales.ir"
@@ -113,6 +121,8 @@ msgid ""
 "Aida Chatbox Integration for WordPress. Easily add the Aida chatbot to your "
 "site with a simple admin panel."
 msgstr ""
+"ادغام چت‌باکس آیدا برای وردپرس. به راحتی چت‌بات آیدا را با یک پنل مدیریت ساده "
+"به سایت خود اضافه کنید."
 
 #. Author of the plugin/theme
 msgid "Rick Sanchez"
