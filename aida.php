@@ -3,7 +3,7 @@
  * Plugin Name: Aida
  * Plugin URI: https://aidasales.ir
  * Description: Aida Chatbox Integration for WordPress. Easily add the Aida chatbot to your site with a simple admin panel.
- * Version: 1.0.0
+ * Version: 1.0.3
  * Author: Rick Sanchez
  * Author URI: https://ricksanchez.ir/
  * License: GPL v2 or later
@@ -16,8 +16,14 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Load textdomain for translations
+add_action('plugins_loaded', 'aida_load_textdomain');
+function aida_load_textdomain() {
+    load_plugin_textdomain('aida', false, dirname(plugin_basename(__FILE__)) . '/languages');
+}
+
 // Define plugin constants
-define('AIDA_VERSION', '1.0.2');
+define('AIDA_VERSION', '1.0.3');
 define('AIDA_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('AIDA_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('AIDA_DOCS_URL', 'https://app.aidasales.ir/chatbox');
@@ -29,8 +35,8 @@ add_action('admin_menu', 'aida_admin_menu');
 function aida_admin_menu() {
     $icon_url = AIDA_PLUGIN_URL . 'assets/logo.png';
     add_menu_page(
-        'Aida Settings',
-        'Aida',
+        __('Aida', 'aida'),
+        __('Aida', 'aida'),
         'manage_options',
         'aida-settings',
         'aida_settings_page',
@@ -58,13 +64,27 @@ function aida_register_settings() {
 // Settings page
 function aida_settings_page() {
     $logo_url = AIDA_PLUGIN_URL . 'assets/logo.png';
+    $is_rtl = is_rtl();
+    $margin_style = $is_rtl ? 'margin-left: 15px;' : 'margin-right: 15px;';
+    $direction_style = $is_rtl ? 'direction: rtl; text-align: right;' : 'direction: ltr; text-align: left;';
     ?>
-    <div class="wrap">
-        <div style="display: flex; align-items: center; margin-bottom: 20px;">
-            <img src="<?php echo esc_url($logo_url); ?>" alt="Aida Logo" style="height: 50px; margin-right: 15px;" onerror="this.style.display='none';" />
-            <h1>Aida Chatbox Settings</h1>
+    <div class="wrap" style="<?php echo $direction_style; ?>">
+        <style>
+            .form-table th { text-align: <?php echo $is_rtl ? 'right' : 'left'; ?>; }
+            .form-table td { text-align: <?php echo $is_rtl ? 'right' : 'left'; ?>; }
+            <?php if ($is_rtl): ?>
+            body { direction: rtl; }
+            <?php endif; ?>
+        </style>
+        <div style="display: flex; align-items: center; margin-bottom: 20px; <?php echo $direction_style; ?>">
+            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php _e('Aida Logo', 'aida'); ?>" style="height: 50px; <?php echo $margin_style; ?>" onerror="this.style.display='none';" />
+            <h1><?php _e('Aida Chatbox Settings', 'aida'); ?></h1>
         </div>
-        <p><a href="<?php echo esc_url(AIDA_DASHBOARD_URL); ?>" target="_blank" class="button button-primary">Go to Aida Dashboard</a> | <a href="<?php echo esc_url(AIDA_DOCS_URL); ?>" target="_blank" class="button">View Documentation</a> | <a href="<?php echo esc_url(AIDA_SITE_URL); ?>" target="_blank" class="button">Aida Website</a></p>
+        <p>
+            <a href="<?php echo esc_url(AIDA_DASHBOARD_URL); ?>" target="_blank" class="button button-primary"><?php _e('Go to Aida Dashboard', 'aida'); ?></a> | 
+            <a href="<?php echo esc_url(AIDA_DOCS_URL); ?>" target="_blank" class="button"><?php _e('View Documentation', 'aida'); ?></a> | 
+            <a href="<?php echo esc_url(AIDA_SITE_URL); ?>" target="_blank" class="button"><?php _e('Aida Website', 'aida'); ?></a>
+        </p>
         <form method="post" action="options.php">
             <?php
             settings_fields('aida_options');
@@ -72,70 +92,41 @@ function aida_settings_page() {
             ?>
             <table class="form-table">
                 <tr valign="top">
-                    <th scope="row">Aida API Key</th>
+                    <th scope="row"><?php _e('Aida API Key', 'aida'); ?></th>
                     <td>
-                        <input type="text" name="aida_api_key" value="<?php echo esc_attr(get_option('aida_api_key')); ?>" class="regular-text" placeholder="e.g., 20AD2PFKSB" />
-                        <p class="description">Enter your Aida Chatbox API Key from your Aida dashboard (<a href="<?php echo esc_url(AIDA_DASHBOARD_URL); ?>" target="_blank">Channels > Website</a>).</p>
+                        <input type="text" name="aida_api_key" value="<?php echo esc_attr(get_option('aida_api_key')); ?>" class="regular-text" placeholder="<?php _e('e.g., 20AD2PFKSB', 'aida'); ?>" />
+                        <p class="description"><?php printf(__('Enter your Aida Chatbox API Key from your Aida dashboard (%sChannels > Website%s).', 'aida'), '<a href="' . esc_url(AIDA_DASHBOARD_URL) . '" target="_blank">', '</a>'); ?></p>
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Chatbox Position</th>
+                    <th scope="row"><?php _e('Chatbox Position', 'aida'); ?></th>
                     <td>
                         <select name="aida_position">
-                            <option value="left" <?php selected(get_option('aida_position'), 'left'); ?>>Left</option>
-                            <option value="right" <?php selected(get_option('aida_position'), 'right'); ?>>Right</option>
+                            <option value="left" <?php selected(get_option('aida_position'), 'left'); ?>><?php _e('Left', 'aida'); ?></option>
+                            <option value="right" <?php selected(get_option('aida_position'), 'right'); ?>><?php _e('Right', 'aida'); ?></option>
                         </select>
-                        <p class="description">Position of the chatbox (default: right). See <a href="<?php echo esc_url(AIDA_DOCS_URL); ?>" target="_blank">docs</a> for more options.</p>
+                        <p class="description"><?php printf(__('Position of the chatbox (default: right). See %sdocs%s for more options.', 'aida'), '<a href="' . esc_url(AIDA_DOCS_URL) . '" target="_blank">', '</a>'); ?></p>
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Initial State</th>
+                    <th scope="row"><?php _e('Initial State', 'aida'); ?></th>
                     <td>
                         <select name="aida_initial_state">
-                            <option value="open" <?php selected(get_option('aida_initial_state'), 'open'); ?>>Open</option>
-                            <option value="closed" <?php selected(get_option('aida_initial_state'), 'closed'); ?>>Closed</option>
+                            <option value="open" <?php selected(get_option('aida_initial_state'), 'open'); ?>><?php _e('Open', 'aida'); ?></option>
+                            <option value="closed" <?php selected(get_option('aida_initial_state'), 'closed'); ?>><?php _e('Closed', 'aida'); ?></option>
                         </select>
-                        <p class="description">Initial state of the chatbox (default: closed). See <a href="<?php echo esc_url(AIDA_DOCS_URL); ?>" target="_blank">docs</a> for more options.</p>
+                        <p class="description"><?php printf(__('Initial state of the chatbox (default: closed). See %sdocs%s for more options.', 'aida'), '<a href="' . esc_url(AIDA_DOCS_URL) . '" target="_blank">', '</a>'); ?></p>
                     </td>
                 </tr>
             </table>
             <?php submit_button(); ?>
         </form>
-
-        <h2>Documentation</h2>
-        <p>For full details, visit the <a href="<?php echo esc_url(AIDA_DOCS_URL); ?>" target="_blank">official Aida Chatbox Documentation</a>.</p>
-        <h3>Prerequisites</h3>
-        <p>Before using the Aida Chatbox, ensure that:</p>
-        <ul>
-            <li>Your website URL is set in <a href="<?php echo esc_url(AIDA_DASHBOARD_URL); ?>" target="_blank">Aida Dashboard → Channels → Website</a></li>
-            <li>The website channel is activated</li>
-            <li>Your Chatbox ID (API Key) is copied from the Channels page (entered above)</li>
-        </ul>
-
-        <h3>Integration</h3>
-        <p>This plugin automatically adds the Aida Chatbox script to your site's footer. No manual code insertion needed! Visit <a href="<?php echo esc_url(AIDA_SITE_URL); ?>" target="_blank">aidasales.ir</a> for more info.</p>
-
-        <h3>API Usage (Advanced)</h3>
-        <p>For programmatic integration (e.g., in custom apps), use:</p>
-        <pre>fetch('/api/v1/conversation/chatbox/YOUR_API_KEY/message', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    message: 'Your message',
-    thread_id: 'thread_id',
-    username: 'username'
-  })
-});</pre>
-
-        <h3>Testing</h3>
-        <p>After saving settings:</p>
-        <ul>
-            <li>Visit your site in a new browser tab</li>
-            <li>Look for the Aida Chatbox widget (usually bottom-right corner)</li>
-            <li>Test sending a message to ensure it works</li>
-        </ul>
+        <?php
+        // Notice if API key is missing
+        if (empty(get_option('aida_api_key'))) {
+            echo '<div class="notice notice-warning"><p>' . __('Warning: Aida API Key is not set. The chatbox will not appear on your site. Please enter your API key above and save changes.', 'aida') . '</p></div>';
+        }
+        ?>
     </div>
     <?php
 }
@@ -151,8 +142,11 @@ function aida_add_chatbox_script() {
     $position = get_option('aida_position', 'right');
     $initial_state = get_option('aida_initial_state', 'closed');
 
+    // Use fa.js for Persian; assuming no en.js, stick to fa
+    $script_src = 'https://cdn.aidasales.ir/chatbox/aida-chatbot.min.fa.js';
+
     ?>
-    <script src="https://cdn.aidasales.ir/chatbox/aida-chatbot.min.fa.js" 
+    <script src="<?php echo esc_url($script_src); ?>" 
             data-aida-api-key="<?php echo esc_attr($api_key); ?>" 
             data-position-chatbox="<?php echo esc_attr($position); ?>" 
             data-initial-state="<?php echo esc_attr($initial_state); ?>">
@@ -160,14 +154,14 @@ function aida_add_chatbox_script() {
     <?php
 }
 
-// Activation hook (optional: add welcome notice or defaults)
+// Activation hook
 register_activation_hook(__FILE__, 'aida_activate');
 function aida_activate() {
     add_option('aida_position', 'right');
     add_option('aida_initial_state', 'closed');
 }
 
-// Deactivation hook (cleanup if needed)
+// Deactivation hook
 register_deactivation_hook(__FILE__, 'aida_deactivate');
 function aida_deactivate() {
     // No cleanup needed
