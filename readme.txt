@@ -1,9 +1,9 @@
 === Aida Chatbox ===
-Contributors: ricksanchez
-Donate link: https://aidasales.ir/donate (اختیاری - اگر لینک دونیت داری)
-Tags: chatbox, chatbot, aida, customer support, live chat, integration
+Contributors: m4tinbeigi-official
+Donate link: https://ricksanchez.ir/
+Tags: chatbox, chatbot, customer support, live chat, integration
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.8
 Stable tag: 1.0.3
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -26,9 +26,6 @@ Aida Chatbox is a lightweight WordPress plugin that allows you to integrate the 
 Get your free Aida API key from [Aida Dashboard](https://app.aidasales.ir/dashboard) and enhance your user engagement today!
 
 For more details, visit the [Aida Website](https://aidasales.ir) or check the [Documentation](https://app.aidasales.ir/chatbox).
-
-=== Aida Chatbox ===
-Contributors: m4tinbeigi-official
 
 == Installation ==
 
