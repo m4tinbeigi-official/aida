@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Aida\n"
-"POT-Creation-Date: 2025-10-26 15:28+0330\n"
-"PO-Revision-Date: 2025-10-26 15:35+0330\n"
+"Project-Id-Version: Aida Chatbox\n"
+"POT-Creation-Date: 2025-10-26 15:48+0330\n"
+"PO-Revision-Date: 2025-10-26 15:51+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: aida.php\n"
+"X-Poedit-WPHeader: aida-chatbox.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
@@ -22,39 +22,39 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: aida.php:38 aida.php:39
-msgid "Aida"
-msgstr "آیدا"
+#: aida-chatbox.php:38 aida-chatbox.php:39
+msgid "Aida Chatbox"
+msgstr "آیدا دستیار فروش"
 
-#: aida.php:80
+#: aida-chatbox.php:80
 msgid "Aida Logo"
-msgstr "لوگو آیدا"
+msgstr "لوگوی آیدا"
 
-#: aida.php:81
+#: aida-chatbox.php:81
 msgid "Aida Chatbox Settings"
-msgstr "تنظیمات چت باکس آیدا"
+msgstr "تنظیمات چت‌باکس آیدا"
 
-#: aida.php:84
+#: aida-chatbox.php:84
 msgid "Go to Aida Dashboard"
-msgstr "رفتن به داشبورد آیدا"
+msgstr "به داشبورد آیدا بروید"
 
-#: aida.php:85
+#: aida-chatbox.php:85
 msgid "View Documentation"
-msgstr "نمایش مستندات"
+msgstr "مشاهده مستندات"
 
-#: aida.php:86
+#: aida-chatbox.php:86
 msgid "Aida Website"
 msgstr "وب‌سایت آیدا"
 
-#: aida.php:95
+#: aida-chatbox.php:95
 msgid "Aida API Key"
-msgstr "کلید وب سرویس"
+msgstr "کلید API آیدا"
 
-#: aida.php:97
+#: aida-chatbox.php:97
 msgid "e.g., 20AD2PFKSB"
-msgstr ""
+msgstr "e.g., 20AD2PFKSB"
 
-#: aida.php:98
+#: aida-chatbox.php:98
 #, php-format
 msgid ""
 "Enter your Aida Chatbox API Key from your Aida dashboard (%sChannels > "
@@ -63,19 +63,19 @@ msgstr ""
 "کلید API ربات چت آیدا خود را از داشبورد آیدا (%sکانال‌ها > وب‌سایت%s) وارد "
 "کنید."
 
-#: aida.php:102
+#: aida-chatbox.php:102
 msgid "Chatbox Position"
-msgstr "محل نمایش چت باکس"
+msgstr "موقعیت چت باکس"
 
-#: aida.php:105
+#: aida-chatbox.php:105
 msgid "Left"
 msgstr "چپ"
 
-#: aida.php:106
+#: aida-chatbox.php:106
 msgid "Right"
 msgstr "راست"
 
-#: aida.php:108
+#: aida-chatbox.php:108
 #, php-format
 msgid ""
 "Position of the chatbox (default: right). See %sdocs%s for more options."
@@ -83,19 +83,19 @@ msgstr ""
 "موقعیت کادر گفتگو (پیش‌فرض: راست). برای گزینه‌های بیشتر به %sdocs%s مراجعه "
 "کنید."
 
-#: aida.php:112
+#: aida-chatbox.php:112
 msgid "Initial State"
 msgstr "حالت اولیه"
 
-#: aida.php:115
+#: aida-chatbox.php:115
 msgid "Open"
 msgstr "باز"
 
-#: aida.php:116
+#: aida-chatbox.php:116
 msgid "Closed"
 msgstr "بسته"
 
-#: aida.php:118
+#: aida-chatbox.php:118
 #, php-format
 msgid ""
 "Initial state of the chatbox (default: closed). See %sdocs%s for more "
@@ -104,7 +104,7 @@ msgstr ""
 "وضعیت اولیه‌ی چت‌باکس (پیش‌فرض: بسته). برای گزینه‌های بیشتر به %sdocs%s مراجعه "
 "کنید."
 
-#: aida.php:127
+#: aida-chatbox.php:127
 msgid ""
 "Warning: Aida API Key is not set. The chatbox will not appear on your site. "
 "Please enter your API key above and save changes."
