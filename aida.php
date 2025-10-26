@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('AIDA_VERSION', '1.0.1');
+define('AIDA_VERSION', '1.0.2');
 define('AIDA_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('AIDA_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('AIDA_DOCS_URL', 'https://app.aidasales.ir/chatbox');
@@ -27,12 +27,15 @@ define('AIDA_SITE_URL', 'https://aidasales.ir');
 // Admin menu and settings
 add_action('admin_menu', 'aida_admin_menu');
 function aida_admin_menu() {
-    add_options_page(
+    $icon_url = AIDA_PLUGIN_URL . 'assets/logo.png';
+    add_menu_page(
         'Aida Settings',
         'Aida',
         'manage_options',
         'aida-settings',
-        'aida_settings_page'
+        'aida_settings_page',
+        $icon_url,
+        80
     );
 }
 
@@ -54,9 +57,13 @@ function aida_register_settings() {
 
 // Settings page
 function aida_settings_page() {
+    $logo_url = AIDA_PLUGIN_URL . 'assets/logo.png';
     ?>
     <div class="wrap">
-        <h1>Aida Chatbox Settings</h1>
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="<?php echo esc_url($logo_url); ?>" alt="Aida Logo" style="height: 50px; margin-right: 15px;" onerror="this.style.display='none';" />
+            <h1>Aida Chatbox Settings</h1>
+        </div>
         <p><a href="<?php echo esc_url(AIDA_DASHBOARD_URL); ?>" target="_blank" class="button button-primary">Go to Aida Dashboard</a> | <a href="<?php echo esc_url(AIDA_DOCS_URL); ?>" target="_blank" class="button">View Documentation</a> | <a href="<?php echo esc_url(AIDA_SITE_URL); ?>" target="_blank" class="button">Aida Website</a></p>
         <form method="post" action="options.php">
             <?php
